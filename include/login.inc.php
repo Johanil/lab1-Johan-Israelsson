@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
 if (empty($uid) || empty($pwd)) {
   header("Location: ../index.php?login=empty");
 } else {
-  $sql = "SELECT * FROM users WHERE user_uid = '$uid' OR user_email='$uid'";
+  $sql = "SELECT * FROM users WHERE user_username = '$uid' OR user_email='$uid'";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   if ($resultCheck < 1) {
@@ -22,6 +22,9 @@ if (empty($uid) || empty($pwd)) {
   } else {
     if ($row = mysqli_fetch_assoc($result)) {
       //De-hashing lösenordet
+      
+
+
       $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
       if ($hashedPwdCheck == false) {
         header("Location: ../index.php?login=error");

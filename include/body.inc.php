@@ -10,5 +10,7 @@
   </form>
 </div>
 <div>
-  
+  <?php
+  include ("comments.inc.php");
+  ?>
 </div>

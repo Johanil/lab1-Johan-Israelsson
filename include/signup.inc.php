@@ -36,8 +36,10 @@ if (isset($_POST['submit'])) {
           header("Location: ../signup.php?signup=usertaken");
           exit();
         } else {
+          //Saltning av lösenordet
+          $saltedpwd = $pwd. $salt;
           //Hashing av lösenord
-          $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+          $hashedPwd = hash('sha256',$saltedpwd);
           //Insert the user into the database
           //
           $sqlinsert = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd, user_salt) VALUES ('$first', '$last', '$email', '$uid', '$hashedPwd', '$salt');";
