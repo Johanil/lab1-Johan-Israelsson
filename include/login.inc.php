@@ -22,7 +22,7 @@ if (empty($uid) || empty($pwd)) {
   } else {
     if ($row = mysqli_fetch_assoc($result)) {
       //De-hashing lösenordet
-      $hashedPwdCheck = md5_verify($salt.$pwd, $row['user_pwd']);
+      $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
       if ($hashedPwdCheck == false) {
         header("Location: ../index.php?login=error");
         exit();

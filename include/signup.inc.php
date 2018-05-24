@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
           exit();
         } else {
           //Hashing av lösenord
-          $hashedPwd = md5($salt.$hashing);
+          $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
           //Insert the user into the database
           //
           $sqlinsert = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd) VALUES ('$first', '$last', '$email', '$uid', '$hashedPwd');";
