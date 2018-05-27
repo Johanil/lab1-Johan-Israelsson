@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <link href="assets/css/comments.css" rel="stylesheet">
+<h2>Vällkommen till Världsträdet</h2>
 <div class="box-comment">
   <img src="assets/img/white-tree-hi.png" class="logo">
   <h2 id="htitle">Skriv din kommentar här</h2>

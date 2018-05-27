@@ -4,13 +4,13 @@
 <section class="main-container">
   <div class"style.css">
 
-    <h2>Vällkommen till Världsträdet</h2>
+
     <?php
     if (isset($_SESSION['u_id'])) {
       include("include/body.php");
     }
     else {
-
+      include("include/no_session_body.php");
     }
     ?>
   </div>
