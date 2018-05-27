@@ -12,7 +12,7 @@ session_start();
   <nav>
     <div class="main-wrapper">
       <ul>
-          <li><a href="index.php">Hem</a></li>
+          <li><a href="index.php">Världsträdet</a></li>
       </ul>
       <div class="nav-login">
         <?php
