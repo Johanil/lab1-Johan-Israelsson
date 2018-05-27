@@ -7,7 +7,7 @@
 
     <?php
     if (isset($_SESSION['u_id'])) {
-      include("include/body.php");
+      include("include/body.inc.php");
     }
     else {
       include("include/no_session_body.php");

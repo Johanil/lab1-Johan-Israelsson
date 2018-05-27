@@ -22,7 +22,7 @@ session_start();
                   </form>';
         } else {
           echo '<form action="include/login.inc.php" method="POST">
-            <input type="text" name="uid" placeholder="Username/e-mail"
+            <input type="text" name="username" placeholder="Username/e-mail"
             >
             <input type="password" name="pwd" placeholder="password">
             <button type="submit" name="submit">Login</button>

@@ -8,13 +8,13 @@ if (isset($_POST['submit'])) {
   $first = mysqli_real_escape_string($conn, $_POST['first']);
   $last = mysqli_real_escape_string($conn, $_POST['last']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $uid = mysqli_real_escape_string($conn, $_POST['uid']);
+  $username = mysqli_real_escape_string($conn, $_POST['username']);
   $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
   //Salt till lösenord
   $salt = saltgen ();
   //error hantering
   //Kolla efter tomma fält
-  if (empty($first) || empty($last) || empty($email) || empty($uid) || empty($pwd)){
+  if (empty($first) || empty($last) || empty($email) || empty($username) || empty($pwd)){
     header("Location: ../signup.php?signup=empty");
     exit();
   } else {
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         header("Location: ../signup.php?signup=email");
         exit();
       } else {
-        $sql = "SELECT * FROM users WHERE user_uid='$uid'";
+        $sql = "SELECT * FROM user_table WHERE user_username='$username'";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
         //Kollar om det finns en användare som redan har användarnamnet
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
           $hashedPwd = hash('sha256',$saltedpwd);
           //Insert the user into the database
           //
-          $sqlinsert = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd, user_salt) VALUES ('$first', '$last', '$email', '$uid', '$hashedPwd', '$salt');";
+          $sqlinsert = "INSERT INTO user_table (user_first, user_last, user_email, user_username, user_pwd, user_salt) VALUES ('$first', '$last', '$email', '$username', '$hashedPwd', '$salt');";
           mysqli_query($conn, $sqlinsert);
           header("Location: ../signup.php?signup=sucess");
           exit();
