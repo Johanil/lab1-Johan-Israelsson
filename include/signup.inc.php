@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['regsubmit'])) {
 
   include_once 'dbh.inc.php';
   include 'functions.inc.php';
@@ -28,12 +28,12 @@ if (isset($_POST['submit'])) {
         header("Location: ../signup.php?signup=email");
         exit();
       } else {
-        $sql = "SELECT * FROM user_table WHERE user_username='$username'";
+        $sql = "SELECT * FROM user_table WHERE user_username='$username' OR user_email='$email'";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
         //Kollar om det finns en användare som redan har användarnamnet
         if ($resultCheck > 0) {
-          header("Location: ../signup.php?signup=usertaken");
+          header("Location: ../signup.php?signup=username_or_email_taken");
           exit();
         } else {
           //Saltning av lösenordet

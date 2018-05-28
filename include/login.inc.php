@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['loginsubmit'])) {
   include 'dbh.inc.php';
 
   $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -36,7 +36,7 @@ if (empty($username) || empty($pwd)) {
       } elseif ($hashedPwdCheck == $existingPwd ) {
         //Loggar in användaren.
         $_SESSION['u_id'] = $row['user_id'];
-        $_SESSION['u_irst'] = $row['user_first'];
+        $_SESSION['u_first'] = $row['user_first'];
         $_SESSION['u_last'] = $row['user_last'];
         $_SESSION['u_email'] = $row['user_email'];
         $_SESSION['u_username'] = $row['user_password'];

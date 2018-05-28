@@ -4,8 +4,10 @@ body
   margin: 0;
   padding: 0;
   background: url(../img/trees-above.jpg);
+  background-attachment: fixed;
   background-size: cover;
   font-family: Helvetica;
+  height: auto;
 }
 
 .box-comment
@@ -36,18 +38,10 @@ body
   margin: 0;
   padding: 0 0 20px;
   text-align: center;
-  text-color: #fff;
-
-}
-
-#htitle
-{
-  margin: 0;
-  padding: 0 0 20px;
-  text-align: center;
   color: #fff;
-  font-size: 26px;
+
 }
+
 .box-comment p
 {
   margin: 0;
