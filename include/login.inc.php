@@ -13,7 +13,7 @@ if (isset($_POST['loginsubmit'])) {
 if (empty($username) || empty($pwd)) {
   header("Location: ../index.php?login=empty");
 } else {
-  $sql = "SELECT * FROM user_table WHERE user_username = '$username' OR user_email='$username'";
+  $sql = "SELECT * FROM user WHERE user_username = '$username' OR user_email='$username'";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   if ($resultCheck < 1) {
@@ -23,7 +23,7 @@ if (empty($username) || empty($pwd)) {
     if ($row = mysqli_fetch_assoc($result)) {
       //De-hashing lösenordet
       $existingPwd = $row['user_pwd'];
-      $saltQuery = "SELECT user_salt FROM user_table WHERE user_username = '$username' OR user_email='$username'";
+      $saltQuery = "SELECT user_salt FROM user WHERE user_username = '$username' OR user_email='$username'";
       $saltResult = mysqli_query($conn, $saltQuery);
       $saltRow = mysqli_fetch_assoc($saltResult);
       $salt = $saltRow['user_salt'];
