@@ -10,7 +10,7 @@ if (isset($_POST['submit_comment'])) {
   //$comment_time = $_POST['date'];
 
 
-if (empty($comment)){
+if (empty($comment) || strlen($comment) < 10){
   header("Location: ../index.php?comment=empty");
   exit();
 } else {
