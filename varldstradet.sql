@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 30 maj 2018 kl 04:38
+-- Tid vid skapande: 30 maj 2018 kl 12:08
 -- Serverversion: 10.1.32-MariaDB
 -- PHP-version: 7.2.5
 
@@ -40,8 +40,7 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`comment_id`, `comment_com`, `user_first`, `user_last`) VALUES
-(3, 'sdfsdf', 'Johan', 'Israelsson'),
-(4, 'Hej!', 'Johan', 'Israelsson');
+(8, 'Tjena, det hÃ¤r Ã¤r VÃ¤rldstrÃ¤dets fÃ¶rsta kommentar!', 'Johan', 'Israelsson');
 
 -- --------------------------------------------------------
 
@@ -91,13 +90,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT för tabell `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `comment_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT för tabell `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
