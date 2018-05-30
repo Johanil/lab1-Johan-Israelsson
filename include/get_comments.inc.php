@@ -19,8 +19,10 @@ if ($check_comments > 0) {
   }
 } else {
   echo "<link href='assets/css/style.css' rel='stylesheet'>";
-  echo "<div class='box--comments'>";
+  echo "<div class='get--comments'>";
+  echo "<p>";
   echo "Det finns inga kommentarer att visa!"."<br>";
+  echo "</p>";
   echo "<br>";
   echo "</div>";
 }
