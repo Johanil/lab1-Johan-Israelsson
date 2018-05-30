@@ -2,7 +2,8 @@
   include_once 'header.php';
 ?>
 <section class="main-container">
-  <div class"style.css">
+  <link href="assets/css/style.css" rel="stylesheet" >
+  <div>
 
 
     <?php

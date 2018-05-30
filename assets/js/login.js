@@ -1,10 +1,10 @@
-
 var loginsubmit = document.getElementById('loginsubmit');
+if(loginsubmit)
+{
 loginsubmit.addEventListener("click", loginvalidateForm);
 
 function loginvalidateForm()
 {
-  console.log(hej);
   var email = document.loginbox.email.value;
   var password = document.loginbox.password.value;
   if(email == "" || password == "")
@@ -19,4 +19,6 @@ function loginvalidateForm()
       alert('Ogiltig epost-adress')
     }
   }
+}
+console_log("HEJ!");
 }

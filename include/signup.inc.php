@@ -42,7 +42,7 @@ if (isset($_POST['regsubmit'])) {
           $hashedPwd = hash('sha256',$saltedpwd);
           //Insert the user into the database
           //
-          $sqlinsert = "INSERT INTO user_table (user_first, user_last, user_email, user_username, user_pwd, user_salt) VALUES ('$first', '$last', '$email', '$username', '$hashedPwd', '$salt');";
+          $sqlinsert = "INSERT INTO user (user_email, user_first, user_last, user_uname, user_pwd, user_salt) VALUES ('$email', '$first', '$last', '$username', '$hashedPwd', '$salt');";
           mysqli_query($conn, $sqlinsert);
           header("Location: ../signup.php?signup=sucess");
           exit();

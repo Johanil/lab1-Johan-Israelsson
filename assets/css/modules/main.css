@@ -1,0 +1,23 @@
+.main-container {
+  padding-top: 40px;
+}
+
+.main-container h2
+{
+  font-size: 40px;
+  margin: 0;
+  padding: 0 0 10px;
+  text-align: center;
+  color: #fff;
+
+}
+
+.main-container h3
+{
+  font-size: 20px;
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  color: #fff;
+
+}

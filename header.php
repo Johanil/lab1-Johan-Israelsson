@@ -8,6 +8,7 @@ session_start();
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
+
 <header>
   <nav>
     <div class="main-wrapper">
@@ -18,16 +19,17 @@ session_start();
         <?php
         if (isset($_SESSION['u_id'])) {
           echo '<form action="include/logout.inc.php" method="POST">
-                    <button type="submit" name="submit">Logout</button>
+                    <button type="submit" name="submit">Logga ut</button>
                   </form>';
         } else {
-          echo '<form action="include/login.inc.php" method="POST">
-            <input type="text" name="username" placeholder="Username/e-mail"
+          echo '<script src="assets/js/login.js"></script>';
+          echo '<form name="loginbox" action="include/login.inc.php" method="POST">
+            <input type="text" name="username" placeholder="Användarnamn/e-post"
             >
-            <input type="password" name="pwd" placeholder="password">
-            <button type="submit" name="submit">Login</button>
+            <input type="password" name="pwd" placeholder="Lösenord">
+            <button type="submit" id="loginsubmit" name="submit">Logga in</button>
           </form>
-          <a href="signup.php">Sign up</a>';
+          <a href="signup.php">Skapa konto</a>';
         }
          ?>
       </div>

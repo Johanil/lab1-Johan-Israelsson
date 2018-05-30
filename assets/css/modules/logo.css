@@ -1,0 +1,21 @@
+.logo-tree
+{
+  width: 75px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;;
+  position: absolute;
+  top: calc(-100px/2);
+  left: calc(50% - 32.5px);
+}
+
+.logo-tree--header
+{
+  width: 50px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;;
+  position: absolute;
+  top: calc(-100px/2);
+  left: calc(50% - 32.5px);
+}

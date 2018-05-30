@@ -1,4 +1,6 @@
 var regsubmit = document.getElementById('regsubmit');
+if(regsubmit)
+{
 regsubmit.addEventListener("click", regvalidateForm);
 function regvalidateForm ()
 {
@@ -12,9 +14,15 @@ function regvalidateForm ()
   if(regfname.trim() == "" || reglname.trim() == "" || regemail.trim() == "" || regusername.trim() == "" || regpassword.trim() == "")
     {
       alert('Alla fält måste vara i fyllda')
+      event.preventDefault();
     }
-    if(regemail.indexOf("@") >= 0 && regemail.indexOf(".") > regemail.indexOf("@") )
+    if(email.indexOf("@") >= 0 && email.indexOf(".") > email.indexOf("@") )
+  {
+  }
+  else {
     {
-      alert('Ange en correct emailadress')
+      alert('Fyll i en giltig epost-adress')
     }
+  }
+}
 }

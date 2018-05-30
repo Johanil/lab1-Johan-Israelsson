@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_POST['loginsubmit'])) {
+if (isset($_POST['submit'])) {
   include 'dbh.inc.php';
 
   $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -13,17 +13,17 @@ if (isset($_POST['loginsubmit'])) {
 if (empty($username) || empty($pwd)) {
   header("Location: ../index.php?login=empty");
 } else {
-  $sql = "SELECT * FROM user WHERE user_username = '$username' OR user_email='$username'";
+  $sql = "SELECT * FROM user WHERE user_uname = '$username' OR user_email='$username'";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   if ($resultCheck < 1) {
-    header("Location: ../index.php?login=error");
+    header("Location: ../index.php?login=error1");
     exit();
   } else {
     if ($row = mysqli_fetch_assoc($result)) {
       //De-hashing lösenordet
       $existingPwd = $row['user_pwd'];
-      $saltQuery = "SELECT user_salt FROM user WHERE user_username = '$username' OR user_email='$username'";
+      $saltQuery = "SELECT user_salt FROM user WHERE user_uname = '$username' OR user_email='$username'";
       $saltResult = mysqli_query($conn, $saltQuery);
       $saltRow = mysqli_fetch_assoc($saltResult);
       $salt = $saltRow['user_salt'];
@@ -31,7 +31,7 @@ if (empty($username) || empty($pwd)) {
       $hashedPwdCheck = hash('sha256', $saltedPwd);
 
       if ($hashedPwdCheck == !$existingPwd) {
-        header("Location: ../index.php?login=error");
+        header("Location: ../index.php?login=error2");
         exit();
       } elseif ($hashedPwdCheck == $existingPwd ) {
         //Loggar in användaren.
@@ -39,7 +39,7 @@ if (empty($username) || empty($pwd)) {
         $_SESSION['u_first'] = $row['user_first'];
         $_SESSION['u_last'] = $row['user_last'];
         $_SESSION['u_email'] = $row['user_email'];
-        $_SESSION['u_username'] = $row['user_password'];
+        $_SESSION['u_username'] = $row['user_uname'];
         header("Location: ../index.php?login=success");
         exit();
       }
@@ -47,7 +47,7 @@ if (empty($username) || empty($pwd)) {
   }
 }
 } else {
-  header("Location: ../index.php?login=error");
+  header("Location: ../index.php?login=error6");
   exit();
 
 }
