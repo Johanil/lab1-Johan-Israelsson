@@ -9,10 +9,11 @@
         <p>Kommentar:</p>
         <textarea type="text" name="comment" rows="6" placeholder="Skriv din text här.."></textarea>
         <div class="center">
-          <button type="submit" name="submit_comment" value="Skicka">Skicka</button>
+          <button type="submit" id="submit_comment" name="submit_comment" value="Skicka">Skicka</button>
         </div>
       </form>
     </div>
   </div class="">
     <?php include 'get_comments.inc.php';?>
+    <script src="assets/js/postcomment.js"></script>
 </body>

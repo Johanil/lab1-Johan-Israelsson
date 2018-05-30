@@ -9,7 +9,7 @@ if (isset($_POST['regsubmit'])) {
   $last = mysqli_real_escape_string($conn, $_POST['last']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $username = mysqli_real_escape_string($conn, $_POST['username']);
-  $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
+  $pwd = mysqli_real_escape_string($conn, $_POST['regpassword']);
   //Salt till lösenord
   $salt = saltgen ();
   //error hantering
@@ -28,12 +28,15 @@ if (isset($_POST['regsubmit'])) {
         header("Location: ../signup.php?signup=email");
         exit();
       } else {
-        $sql = "SELECT * FROM user_table WHERE user_username='$username' OR user_email='$email'";
+        $sql = "SELECT * FROM user WHERE user_uname='$username' OR user_email='$email'";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
         //Kollar om det finns en användare som redan har användarnamnet
         if ($resultCheck > 0) {
-          header("Location: ../signup.php?signup=username_or_email_taken");
+          echo "<script>";
+          echo "alert('Användarnamn eller e-post är upptagen!');";
+          echo "location.replace('../signup.php?signup=username_or_email_taken')";
+          echo "</script>";
           exit();
         } else {
           //Saltning av lösenordet
@@ -44,7 +47,7 @@ if (isset($_POST['regsubmit'])) {
           //
           $sqlinsert = "INSERT INTO user (user_email, user_first, user_last, user_uname, user_pwd, user_salt) VALUES ('$email', '$first', '$last', '$username', '$hashedPwd', '$salt');";
           mysqli_query($conn, $sqlinsert);
-          header("Location: ../signup.php?signup=sucess");
+          header("Location: ../index.php?signup=sucess");
           exit();
         }
       }

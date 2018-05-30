@@ -2,12 +2,11 @@
 
 session_start();
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['loginsubmit'])) {
   include 'dbh.inc.php';
 
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
-  $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
-  $salt = mysqli_real_escape_string($conn, $_POST['salt']);
+  $username = mysqli_real_escape_string($conn, $_POST['email']);
+  $pwd = mysqli_real_escape_string($conn, $_POST['password']);
 //Errorhandlers
 //Kolla om input är tom
 if (empty($username) || empty($pwd)) {

@@ -22,14 +22,14 @@ session_start();
                     <button type="submit" name="submit">Logga ut</button>
                   </form>';
         } else {
-          echo '<script src="assets/js/login.js"></script>';
-          echo '<form name="loginbox" action="include/login.inc.php" method="POST">
-            <input type="text" name="username" placeholder="Användarnamn/e-post"
-            >
-            <input type="password" name="pwd" placeholder="Lösenord">
-            <button type="submit" id="loginsubmit" name="submit">Logga in</button>
+
+          echo '<form name="loginbox" onsubmit="return loginvalidateForm();" action="include/login.inc.php" method="POST">
+            <input type="text" name="email" placeholder="E-post">
+            <input type="password" name="password" placeholder="Lösenord">
+            <button type="submit" id="loginsubmit" name="loginsubmit">Logga in</button>
           </form>
           <a href="signup.php">Skapa konto</a>';
+          echo '<script src="assets/js/login.js"></script>';
         }
          ?>
       </div>
